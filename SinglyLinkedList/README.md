@@ -23,3 +23,6 @@ The list(2): five ----> one<br />
 The list(1): five<br />
 The list is empty(0)<br />
 The list(1): six<br />
+<br />
+This demo has been compiled on Windows 10 with MinGW with the following command line:<br/>
+<b>g++ -std=c++0x -g3 Node.cpp SinglyLinkedList.cpp DemoSLL.cpp -o DemoSLL</b>
