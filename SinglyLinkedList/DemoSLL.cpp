@@ -1,3 +1,7 @@
+/*
+* C:\Users\David\Desktop>g++ -std=c++0x -g3 Node.cpp SinglyLinkedList.cpp DemoSLL.cpp -o DemoSLL
+*/
+
 #include "SinglyLinkedList.h"
 
 using namespace std;
@@ -19,6 +23,9 @@ int main()
 	sll->addNodeAfter(n3, n4);
 	sll->toString();
 	sll->removeNode(2);
+	sll->toString();
+	cout << "Position of node 3: " << to_string(sll->getPosition(n3)) << endl;
+	sll->reverse();
 	sll->toString();
 	sll->removeNode(4);
 	sll->toString();
@@ -65,8 +72,6 @@ int main()
 	Node<string>* n6s = new Node<string>("six");
 	slls->addNodeBeginning(n6s);
 	slls->toString();
-	
-	//cout << sll;
 	
 	delete slls;
 }

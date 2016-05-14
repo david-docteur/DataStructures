@@ -11,12 +11,6 @@ Node<T>::Node(T value)
 }
 
 template<typename T>
-Node<T>::~Node()
-{
-	
-}
-
-template<typename T>
 const Node<T>* Node<T>::operator=(const Node<T>* n)
 {
 	cout << "Calling Node Assignment Operator." << endl;
@@ -41,12 +35,6 @@ template<typename T>
 Node<T>* Node<T>::getNext()
 {
 	return next;
-}
-
-template<typename T>
-Node<T>::setNext(Node<T>* n)
-{
-	next = n;
 }
 
 template class Node<int>;

@@ -1,7 +1,5 @@
 #include "SinglyLinkedList.h"
 
-// C:\Users\David\Desktop>g++ -std=c++0x -g3 Node.cpp SinglyLinkedList.cpp DemoSLL.cpp -o DemoSLL
-
 using namespace std;
 
 template<typename T>
@@ -75,19 +73,21 @@ int SinglyLinkedList<T>::count()
 }
 
 template<typename T>
-Node<T>* SinglyLinkedList<T>::fetchNode(T value)
+int SinglyLinkedList<T>::getPosition(Node<T>* node)
 {
+	int pos = 1;
 	Node<T>* current = head;
 	while(current != NULL)
 	{
-		if(current->data == value)
-			return current;
+		if(current->data == node->data)
+			return pos;
 		else
-			current->next;
+			current = current->next;
+		// Next position
+		pos++;
 	}
 	
-	return NULL;
-		
+	return -1;
 }
 
 template<typename T>
@@ -102,7 +102,6 @@ SinglyLinkedList<T>::addNodeBeginning(Node<T>* newNode)
 {
 	if(isEmpty())
 	{
-		newNode->next = NULL;
 		head = newNode;
 	}
 	else
@@ -124,8 +123,16 @@ SinglyLinkedList<T>::removeNode(T value)
 			// End of list (as currently head and next is null)
 			if(current->next == 0)
 			{
-				delete current->next;
+				delete current;
 				head = NULL;
+				return 1;
+			}
+			// First element of the list
+			else if(current->data == value)
+			{
+				head = current->next;
+				delete current;
+				return 1;
 			}
 			// Going through
 			else if(current->next->data == value)
@@ -147,6 +154,19 @@ SinglyLinkedList<T>::removeNode(T value)
 template<typename T>
 SinglyLinkedList<T>::reverse()
 {
+	Node<T>* previous = NULL;
+	Node<T>* current = head;
+	Node<T>* next = NULL;
+	
+	while(current != 0)
+	{
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
+	}
+	
+	head = previous;
 	
 }
 
