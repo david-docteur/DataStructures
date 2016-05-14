@@ -1,3 +1,7 @@
+/*
+* g++ -std=c++0x -g3 Node.cpp DoublyLinkedList.cpp DemoDLL.cpp -o DemoDLL
+*/
+
 #include "DoublyLinkedList.h"
 
 using namespace std;
@@ -18,6 +22,7 @@ int main()
 	dll->addNodeAfter(n2, n4);
 	dll->addNodeAfter(n4, n3);
 	dll->toString();
+	cout << "Position of node 3: " << to_string(dll->getPosition(n3)) << endl;
 	dll->toStringReverse();
 	dll->removeNode(2);
 	dll->toString();
@@ -67,8 +72,6 @@ int main()
 	Node<string>* n6s = new Node<string>("six");
 	dlls->addNodeBeginning(n6s);
 	dlls->toString();
-	
-	//cout << dll;
 	
 	delete dlls;
 }

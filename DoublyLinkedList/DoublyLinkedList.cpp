@@ -1,7 +1,5 @@
 #include "DoublyLinkedList.h"
 
-// C:\Users\David\Desktop>g++ -std=c++0x -g3 Node.cpp DoublyLinkedList.cpp DemoDLL.cpp -o DemoDLL
-
 using namespace std;
 
 template<typename T>
@@ -119,19 +117,20 @@ int DoublyLinkedList<T>::count()
 }
 
 template<typename T>
-Node<T>* DoublyLinkedList<T>::fetchNode(T value)
+int DoublyLinkedList<T>::getPosition(Node<T>* node)
 {
+	int pos = 1;
 	Node<T>* current = head;
 	while(current != NULL)
 	{
-		if(current->data == value)
-			return current;
+		if(current->data == node->data)
+			return pos;
 		else
-			current->next;
+			current = current->next;
+		pos++;
 	}
 	
-	return NULL;
-		
+	return -1;
 }
 
 template<typename T>
