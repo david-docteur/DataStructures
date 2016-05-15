@@ -60,33 +60,33 @@ Node* BinarySearchTree::insert(Node* node, int value)
 	return node;
 }
 
-void BinarySearchTree::printPreOrder(Node* root)
+void BinarySearchTree::printPreOrder(Node* node)
 {	
-	if(root != 0)
+	if(node != 0)
 	{
-		cout << to_string(root->data) << endl;
-		printPreOrder(root->left);
-		printPreOrder(root->right);
+		cout << to_string(node->data) << " ";
+		printPreOrder(node->left);
+		printPreOrder(node->right);
 	}
 }
 
-string BinarySearchTree::printInOrder(Node* root)
+void BinarySearchTree::printInOrder(Node* node)
 {
-	if(root != 0)
+	if(node != 0)
 	{
-		printInOrder(root->left);
-		cout << to_string(root->data) <<endl;
-		printInOrder(root->right);
+		printInOrder(node->left);
+		cout << to_string(node->data) << " ";
+		printInOrder(node->right);
 	}
 }
 
-string BinarySearchTree::printPostOrder(Node* root)
+void BinarySearchTree::printPostOrder(Node* node)
 {
-	if(root != 0)
+	if(node != 0)
 	{
-		printInOrder(root->left);
-		printInOrder(root->right);
-		cout << to_string(root->data) <<endl;
+		printPostOrder(node->left);
+		printPostOrder(node->right);
+		cout << to_string(node->data) << " ";
 	}
 }
 

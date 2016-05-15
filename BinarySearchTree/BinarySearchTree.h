@@ -1,4 +1,3 @@
-#include <string>
 #include "Node.h"
 
 class BinarySearchTree
@@ -21,9 +20,9 @@ class BinarySearchTree
 		// Print root -> left -> right
 		void printPreOrder(Node*);
 		// Print left -> root -> right
-		std::string printInOrder(Node*);
+		void printInOrder(Node*);
 		// Print left -> right -> root
-		std::string printPostOrder(Node*);
+		void printPostOrder(Node*);
 		// Return if node is root
 		bool isRoot(Node*);
 		// Returns the numbers of nodes in the tree
